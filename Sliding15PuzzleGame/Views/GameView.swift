@@ -15,13 +15,13 @@ struct GameView: View {
     @State var cancellable: AnyCancellable?
     
     @State var message = ""
-    @State var isShowingAlert = false
+    @State var isShowingAlert = true
     
     @State var isPaused = false
     @State var tiles: [Int] = Array(1...15) + [0]
     
     @State var totalMoves = 0
-    @State var timeElapsed: Double = 1.0
+    @State var timeElapsed: Double = 0.0
     
     var body: some View {
         ZStack {
@@ -53,16 +53,16 @@ struct GameView: View {
                             Image(systemName: "pause.rectangle")
                                 .resizable()
                                 .frame(width: 25, height: 25)
-                                .foregroundColor(totalMoves == 0 ? Color(.gray) : Color("tile"))
+                                .foregroundColor(totalMoves == 0 || isShowingAlert == true ? Color(.gray) : Color("tile"))
                                 .bold()
                             
                             Text("Pause")
                                 .animation(.none)
-                                .foregroundColor(totalMoves == 0 ? Color(.gray) : Color("timerAndMovesButton"))
+                                .foregroundColor(totalMoves == 0 || isShowingAlert == true ? Color(.gray) : Color("timerAndMovesButton"))
                             
                         }
                     }
-                    .disabled(totalMoves == 0)
+                    .disabled(totalMoves == 0 || isShowingAlert == true)
                     
                     Spacer()
                     Button(action: {
@@ -72,11 +72,13 @@ struct GameView: View {
                             Image(systemName: "plus.viewfinder")
                                 .resizable()
                                 .frame(width: 25, height: 25)
-                                .foregroundColor(Color("tile"))
+                                .foregroundColor(isShowingAlert == true ? Color(.gray) : Color("tile"))
                                 .bold()
                             Text("New Game")
+                                .foregroundColor(isShowingAlert == true ? Color(.gray) : Color("timerAndMovesButton"))
                         }
                     })
+                    .disabled(isShowingAlert == true)
                 }
                 .padding(40)
                 .foregroundColor(Color("timerAndMovesButton"))
@@ -86,9 +88,10 @@ struct GameView: View {
             }
             .overlay(isPaused ? overlayView : nil)
             
-            .onAppear {
-                shuffle()
-            }
+        }
+        .overlay(isShowingAlert ? DialogView(isShowingAlert: $isShowingAlert, title: "Excellent!", message: "It took you \(totalMoves) moves", buttonTitle: "New Game", action: shuffle) : nil)
+        .onDisappear {
+            pause()
         }
         
     }
@@ -124,6 +127,9 @@ struct GameView: View {
         //Check if the tapped tilw is adjacent to the empty tile
         let emptyIndex = tiles.firstIndex(of: 0)!
         let emptyPosition = (emptyIndex / size, emptyIndex % size)
+        if tiles == [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
+            return false
+        }
         return abs(emptyPosition.0 - position.row) + abs(emptyPosition.1 - position.column) == 1
     }
     
@@ -177,6 +183,7 @@ struct GameView: View {
     
     // FUNCTION: to swap an empty tile with an adjacent tile.
     func movePiece() {
+        
         let emptyIndex = tiles.firstIndex(of: 0)!
         let emptyPosition = (emptyIndex / size, emptyIndex % size)
         let tilesAroundIndexArray = findTilesAround(at: emptyPosition)
@@ -235,3 +242,4 @@ extension GameView {
     
     GameView(size: 4, tileSize: 80)
 }
+

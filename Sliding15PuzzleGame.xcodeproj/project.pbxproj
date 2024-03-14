@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		783774A02BA1D69C00F20904 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7837749F2BA1D69C00F20904 /* DialogView.swift */; };
 		78C7FD202B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7FD1F2B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift */; };
 		78C7FD242B9EB95B0048E883 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C7FD232B9EB95B0048E883 /* Assets.xcassets */; };
 		78C7FD272B9EB95B0048E883 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C7FD262B9EB95B0048E883 /* Preview Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7837749F2BA1D69C00F20904 /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		78C7FD1C2B9EB95A0048E883 /* Sliding15PuzzleGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sliding15PuzzleGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C7FD1F2B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliding15PuzzleGameApp.swift; sourceTree = "<group>"; };
 		78C7FD232B9EB95B0048E883 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 				78C7FD372B9ECFC30048E883 /* ContentView.swift */,
 				78C7FD332B9EC7300048E883 /* TileView.swift */,
 				78C7FD352B9EC8F70048E883 /* GameView.swift */,
+				7837749F2BA1D69C00F20904 /* DialogView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			files = (
 				78C7FD342B9EC7300048E883 /* TileView.swift in Sources */,
 				78C7FD362B9EC8F70048E883 /* GameView.swift in Sources */,
+				783774A02BA1D69C00F20904 /* DialogView.swift in Sources */,
 				78C7FD382B9ECFC30048E883 /* ContentView.swift in Sources */,
 				78C7FD202B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift in Sources */,
 			);
