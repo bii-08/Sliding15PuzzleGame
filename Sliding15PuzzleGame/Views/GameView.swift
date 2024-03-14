@@ -105,6 +105,9 @@ struct GameView: View {
             if phase == .inactive && !isPaused {
                 start()
             }
+            if phase == .inactive && isShowingAlert {
+                pause()
+            }
         }
         
     }

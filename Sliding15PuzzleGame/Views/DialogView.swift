@@ -23,7 +23,7 @@ struct DialogView: View {
                        .font(.custom("Bradley Hand", size: 40))
                        .bold()
                        .padding()
-                       .foregroundColor(Color("excellent"))
+                       .foregroundColor(Color("excellent").opacity(0.8))
 
                    Text(message)
                        .font(.title2)
@@ -38,6 +38,7 @@ struct DialogView: View {
                                .foregroundColor(Color("bestPlay"))
                        }
                    }
+
 //                   Spacer()
                    Button {
                       action()
