@@ -10,10 +10,11 @@ import SwiftUI
 struct DialogView: View {
     @Binding var isShowingAlert: Bool
 
-       let title: String
-       let message: String
-       let buttonTitle: String
-       let action: () -> ()
+    let title: String
+    let message: String
+    let bestPlay: Int
+    let buttonTitle: String
+    let action: () -> ()
        @State private var offset: CGFloat = 1000
 
        var body: some View {
@@ -25,9 +26,19 @@ struct DialogView: View {
                        .foregroundColor(Color("excellent"))
 
                    Text(message)
-                       .font(.headline)
+                       .font(.title2)
                        .foregroundColor(.white)
-
+                   Spacer()
+            
+                   if bestPlay != 0 {
+                       HStack {
+                           Image(systemName: "crown.fill")
+                               .foregroundColor(.yellow)
+                           Text("Best play:" + " " + String(bestPlay) )
+                               .foregroundColor(Color("bestPlay"))
+                       }
+                   }
+//                   Spacer()
                    Button {
                       action()
                       close()
@@ -42,11 +53,24 @@ struct DialogView: View {
                        }
                        .padding()
                    }
+//                   Spacer()
                }
                .fixedSize(horizontal: false, vertical: true)
                .padding()
                .background(Color("dialog"))
                .clipShape(RoundedRectangle(cornerRadius: 20))
+               .overlay(alignment: .topTrailing) {
+                   Button {
+                       close()
+                   } label: {
+                       Image(systemName: "xmark")
+                           .font(.title2)
+                           .fontWeight(.medium)
+                   }
+                   .tint(.white)
+                   .bold()
+                   .padding()
+               }
                .shadow(radius: 20)
                .padding(30)
                .offset(x: 0, y: offset)
@@ -68,5 +92,5 @@ struct DialogView: View {
 
 
 #Preview {
-    DialogView(isShowingAlert: .constant(true), title: "Excellent!", message: "I took you 121 moves", buttonTitle: "New Game", action: {})
+    DialogView(isShowingAlert: .constant(true), title: "Excellent!", message: "I took you 121 moves", bestPlay: 20, buttonTitle: "New Game", action: {})
 }

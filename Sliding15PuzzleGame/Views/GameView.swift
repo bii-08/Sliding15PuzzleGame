@@ -10,18 +10,23 @@ import Combine
 
 struct GameView: View {
     
+    @Environment(\.scenePhase) private var scenePhase
+
     let size: Int
+    
     let tileSize: CGFloat
     @State var cancellable: AnyCancellable?
-    
     @State var message = ""
-    @State var isShowingAlert = true
     
+    @State var isShowingAlert = false
     @State var isPaused = false
     @State var tiles: [Int] = Array(1...15) + [0]
     
     @State var totalMoves = 0
+    @State var bestPlay: [Int]
     @State var timeElapsed: Double = 0.0
+    
+   
     
     var body: some View {
         ZStack {
@@ -89,9 +94,17 @@ struct GameView: View {
             .overlay(isPaused ? overlayView : nil)
             
         }
-        .overlay(isShowingAlert ? DialogView(isShowingAlert: $isShowingAlert, title: "Excellent!", message: "It took you \(totalMoves) moves", buttonTitle: "New Game", action: shuffle) : nil)
+        .overlay(isShowingAlert ? DialogView(isShowingAlert: $isShowingAlert, title: "Excellent!", message: "It took you \(totalMoves) moves", bestPlay: bestPlay.min() ?? 0, buttonTitle: "New Game", action: shuffle) : nil)
         .onDisappear {
             pause()
+        }
+        .onChange(of: scenePhase) { phase in
+            if phase == .background {
+                pause()
+            }
+            if phase == .inactive && !isPaused {
+                start()
+            }
         }
         
     }
@@ -113,6 +126,8 @@ struct GameView: View {
             // Check if user's answer is right or not
             if tiles == [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
                 pause()
+                bestPlay.append(totalMoves)
+                print(bestPlay)
                 isShowingAlert.toggle()
                 message = "Execellent! It took you \(totalMoves) moves"
                 print("Execellent! It took you \(totalMoves) moves")
@@ -238,8 +253,10 @@ extension GameView {
     }
 }
 
+
+
 #Preview {
     
-    GameView(size: 4, tileSize: 80)
+    GameView(size: 4, tileSize: 80, bestPlay: [10_000_000])
 }
 

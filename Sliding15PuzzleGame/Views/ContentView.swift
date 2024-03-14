@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        GameView(size: 4, tileSize: 80)
+        GameView(size: 4, tileSize: 80, bestPlay: [10_000_000])
     }
      
 }
