@@ -20,17 +20,15 @@ struct TileView: View {
                 Color("tile")
                 Text("\(number)")
                     .font(.system(size: CGFloat(size) * 0.6))
+                    .bold()
                     .foregroundColor(.white)
-                    
             }
-            
         }
         .frame(width: size, height: size)
         .cornerRadius(8)
         .onTapGesture {
             onTap()
         }
-        
     }
 }
 

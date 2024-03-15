@@ -9,80 +9,87 @@ import SwiftUI
 
 struct DialogView: View {
     @Binding var isShowingAlert: Bool
-
+    @State var play = true // confetti
     let title: String
     let message: String
     let bestPlay: Int
     let buttonTitle: String
     let action: () -> ()
        @State private var offset: CGFloat = 1000
-
+    
        var body: some View {
+           ZStack {
                VStack {
-                   Text(title)
-                       .font(.custom("Bradley Hand", size: 40))
+                       Text(title) // Text 'Excellent!'
+                           .font(.custom("Bradley Hand", size: 35))
+                           .bold()
+                           .padding()
+                           .foregroundColor(Color("excellent").opacity(0.8))
+
+                       Text(message) // Text 'It took you 121 moves'
+                           .font(.title3)
+                           .foregroundColor(.white)
+                       Spacer()
+                
+                       if bestPlay != 0 {
+                           HStack {
+                               Image(systemName: "crown.fill")
+                                   .foregroundColor(.yellow)
+                               Text("Best play:" + " " + String(bestPlay) ) // Text 'Best play: 20'
+                                   .foregroundColor(Color("bestPlay"))
+                           }
+                       }
+                       
+                       // Button 'New Game'
+                       Button {
+                          action()
+                          close()
+                       } label: {
+                           ZStack {
+                               RoundedRectangle(cornerRadius: 20)
+                                   .foregroundColor(Color("dialogButton"))
+                               Text(buttonTitle)
+                                   .font(.system(size: 18, weight: .bold))
+                                   .foregroundColor(.white)
+                                   .padding()
+                           }
+                           .padding()
+                       }
+                   }
+                   .fixedSize(horizontal: false, vertical: true)
+                   .padding()
+                   .background(Color("dialog"))
+                   .clipShape(RoundedRectangle(cornerRadius: 20))
+                   .overlay(alignment: .topTrailing) {
+                       Button {
+                           close()
+                       } label: {
+                           Image(systemName: "xmark")
+                               .font(.title2)
+                               .fontWeight(.medium)
+                       }
+                       .tint(.white)
                        .bold()
                        .padding()
-                       .foregroundColor(Color("excellent").opacity(0.8))
-
-                   Text(message)
-                       .font(.title2)
-                       .foregroundColor(.white)
-                   Spacer()
-            
-                   if bestPlay != 0 {
-                       HStack {
-                           Image(systemName: "crown.fill")
-                               .foregroundColor(.yellow)
-                           Text("Best play:" + " " + String(bestPlay) )
-                               .foregroundColor(Color("bestPlay"))
+                   }
+                   .shadow(radius: 20)
+                   .padding(30)
+                   .offset(x: 0, y: offset)
+                   .onAppear {
+                       withAnimation(.spring()) {
+                           offset = 0
                        }
-                   }
-
-//                   Spacer()
-                   Button {
-                      action()
-                      close()
-                   } label: {
-                       ZStack {
-                           RoundedRectangle(cornerRadius: 20)
-                               .foregroundColor(Color("dialogButton"))
-                           Text(buttonTitle)
-                               .font(.system(size: 16, weight: .bold))
-                               .foregroundColor(.white)
-                               .padding()
-                       }
-                       .padding()
-                   }
-//                   Spacer()
                }
-               .fixedSize(horizontal: false, vertical: true)
-               .padding()
-               .background(Color("dialog"))
-               .clipShape(RoundedRectangle(cornerRadius: 20))
-               .overlay(alignment: .topTrailing) {
-                   Button {
-                       close()
-                   } label: {
-                       Image(systemName: "xmark")
-                           .font(.title2)
-                           .fontWeight(.medium)
-                   }
-                   .tint(.white)
-                   .bold()
-                   .padding()
-               }
-               .shadow(radius: 20)
-               .padding(30)
-               .offset(x: 0, y: offset)
-               .onAppear {
-                   withAnimation(.spring()) {
-                       offset = 0
-                   }
-               }
-          
+               LottiePlusView(name: "Confetti", contentMode: .scaleAspectFill, play: $play)
+                   .allowsHitTesting(false)
+           }
+           .onDisappear {
+               play = false
+           }
+           .ignoresSafeArea()
        }
-
+      
+     // FUNCTION: function to close dialog
        func close() {
            withAnimation(.spring()) {
                offset = 1000
@@ -91,7 +98,6 @@ struct DialogView: View {
        }
    }
 
-
 #Preview {
-    DialogView(isShowingAlert: .constant(true), title: "Excellent!", message: "I took you 121 moves", bestPlay: 20, buttonTitle: "New Game", action: {})
+    DialogView(isShowingAlert: .constant(true), title: "Excellent!", message: "It took you 121 moves", bestPlay: 20, buttonTitle: "New Game", action: {})
 }
