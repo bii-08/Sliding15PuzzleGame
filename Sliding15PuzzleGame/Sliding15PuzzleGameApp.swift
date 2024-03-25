@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct Sliding15PuzzleGameApp: App {
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashView()
         }
     }
 }

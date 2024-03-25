@@ -7,14 +7,20 @@
 
 import Foundation
 import Combine
+import CoreData
+import UIKit
 
 class GameVM: ObservableObject {
     let size: Int
     let tileSize: CGFloat
-    @Published var cancellable: AnyCancellable?
+    
+
+    @Published var cancellable: AnyCancellable? = nil
     @Published var message = ""
     
     @Published var isShowingAlert = false 
+    @Published var isShowingConfirmation = false
+    @Published var isContinued = false
     
     @Published var isPaused = false
     @Published var tiles: [Int] = Array(1...15) + [0]
@@ -23,18 +29,45 @@ class GameVM: ObservableObject {
     @Published var bestPlay: [Int]
     @Published var timeElapsed: Double = 0.0
     
-    init(size: Int = 4, tileSize: CGFloat = 80, cancellable: AnyCancellable? = nil, message: String = "", isShowingAlert: Bool = false, isPaused: Bool = false, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, bestPlay: [Int] = [1_000_000], timeElapsed: Double = 0.0) {
-        self.cancellable = cancellable
-        self.message = message
-        self.isShowingAlert = isShowingAlert
-        self.isPaused = isPaused
+    init(size: Int = 4, tileSize: CGFloat = 80, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, bestPlay: [Int] = [1_000_000], timeElapsed: Double = 0.0) {
         self.tiles = tiles
         self.totalMoves = totalMoves
         self.bestPlay = bestPlay
         self.timeElapsed = timeElapsed
         self.size = size
         self.tileSize = tileSize
+        
+        print("initializing game")
+        
+        if UserDefaults.standard.data(forKey: "savedProgress") != nil {
+            isShowingConfirmation = true
+            getSavedProgress()
+        }
     }
+
+     // FUNCTION: to save user's game progress
+    func saveProgress() {
+        let data = GameProgress(tiles: tiles, totalMoves: totalMoves, bestPlay: bestPlay, timeElapsed: timeElapsed)
+        if let encodedProgress = try? JSONEncoder().encode(data) {
+            UserDefaults.standard.set(encodedProgress, forKey: "savedProgress")
+        }
+        
+    }
+    
+    // FUNCTION: to get user's game progress
+    func getSavedProgress() {
+        guard
+            let data = UserDefaults.standard.data(forKey: "savedProgress"),
+            let savedProgress = try? JSONDecoder().decode(GameProgress.self, from: data)
+        else { return }
+        self.tiles = savedProgress.tiles
+        self.totalMoves = savedProgress.totalMoves
+        self.bestPlay = savedProgress.bestPlay
+        self.timeElapsed = savedProgress.timeElapsed
+    }
+    
+
+
     
     // FUNCTION: to move tiles around
     func tapTile(at position: (row: Int, column: Int)) {

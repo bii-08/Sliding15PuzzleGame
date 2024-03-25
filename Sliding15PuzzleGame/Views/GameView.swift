@@ -11,10 +11,11 @@ import Combine
 struct GameView: View {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var vm = GameVM()
-
+    
     var body: some View {
         ZStack {
-            Color("background").ignoresSafeArea()
+            Color("background")
+                .ignoresSafeArea()
             VStack {
                 Spacer()
                 Text("\(vm.formatMmSs(counter: vm.timeElapsed))")
@@ -75,6 +76,19 @@ struct GameView: View {
                 Spacer()
             }
             .overlay(vm.isPaused ? overlayView : nil)
+            // This is an alert asking user for a confirmationif they want to continue the previous game or not
+            .alert("Confirmation", isPresented: $vm.isShowingConfirmation) {
+                Button("Continue") { 
+                    vm.isContinued = true
+                    vm.start()
+                }
+                Button("New Game") { 
+                    vm.shuffle()
+                    UserDefaults.standard.removeObject(forKey: "savedProgress")
+                }
+            } message: {
+                Text("Do you want to continue?")
+            }
         }
         .overlay(vm.isShowingAlert ?
                  DialogView(isShowingAlert: $vm.isShowingAlert, title: "Excellent!", message: "It took you \(vm.totalMoves) moves", bestPlay: vm.bestPlay.min() ?? 0, buttonTitle: "New Game", action: vm.shuffle)
@@ -86,6 +100,7 @@ struct GameView: View {
             switch phase {
             case .background:
                 vm.pause()
+                vm.saveProgress()
             case .inactive:
                 if !vm.isPaused {
                     vm.start()
@@ -107,6 +122,7 @@ struct GameView: View {
             }
         }
     }
+
 }
 
 extension GameView {
