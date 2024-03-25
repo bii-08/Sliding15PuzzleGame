@@ -39,6 +39,7 @@ class GameVM: ObservableObject {
         
         print("initializing game")
         
+        // Check if there are any saved data in User Defaults
         if UserDefaults.standard.data(forKey: "savedProgress") != nil {
             isShowingConfirmation = true
             getSavedProgress()
@@ -65,9 +66,6 @@ class GameVM: ObservableObject {
         self.bestPlay = savedProgress.bestPlay
         self.timeElapsed = savedProgress.timeElapsed
     }
-    
-
-
     
     // FUNCTION: to move tiles around
     func tapTile(at position: (row: Int, column: Int)) {

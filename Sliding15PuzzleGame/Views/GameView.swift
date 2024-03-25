@@ -76,7 +76,7 @@ struct GameView: View {
                 Spacer()
             }
             .overlay(vm.isPaused ? overlayView : nil)
-            // This is an alert asking user for a confirmationif they want to continue the previous game or not
+            // This is an alert asking user for a confirmation if they want to continue the previous game or not
             .alert("Confirmation", isPresented: $vm.isShowingConfirmation) {
                 Button("Continue") { 
                     vm.isContinued = true

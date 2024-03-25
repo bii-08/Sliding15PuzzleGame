@@ -17,7 +17,6 @@
 		783774B52BA461FD00F20904 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783774B42BA461FD00F20904 /* SplashView.swift */; };
 		783774B72BA4744800F20904 /* puzzle.json in Resources */ = {isa = PBXBuildFile; fileRef = 783774B62BA4744800F20904 /* puzzle.json */; };
 		783774BA2BA479D200F20904 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783774B92BA479D200F20904 /* Extension.swift */; };
-		783774BD2BA47DA300F20904 /* GameProgressContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 783774BB2BA47DA300F20904 /* GameProgressContainer.xcdatamodeld */; };
 		78C7FD202B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7FD1F2B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift */; };
 		78C7FD242B9EB95B0048E883 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C7FD232B9EB95B0048E883 /* Assets.xcassets */; };
 		78C7FD272B9EB95B0048E883 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C7FD262B9EB95B0048E883 /* Preview Assets.xcassets */; };
@@ -35,7 +34,6 @@
 		783774B42BA461FD00F20904 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		783774B62BA4744800F20904 /* puzzle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = puzzle.json; sourceTree = "<group>"; };
 		783774B92BA479D200F20904 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		783774BC2BA47DA300F20904 /* PlayingProgressContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlayingProgressContainer.xcdatamodel; sourceTree = "<group>"; };
 		78C7FD1C2B9EB95A0048E883 /* Sliding15PuzzleGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sliding15PuzzleGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C7FD1F2B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliding15PuzzleGameApp.swift; sourceTree = "<group>"; };
 		78C7FD232B9EB95B0048E883 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 				783774B82BA4799E00F20904 /* Extension */,
 				783774AB2BA3D9E400F20904 /* Lottie Files */,
 				78C7FD232B9EB95B0048E883 /* Assets.xcassets */,
-				783774BB2BA47DA300F20904 /* GameProgressContainer.xcdatamodeld */,
 				78C7FD252B9EB95B0048E883 /* Preview Content */,
 			);
 			path = Sliding15PuzzleGame;
@@ -227,7 +224,6 @@
 				783774AF2BA3DE4600F20904 /* LottiePlusView.swift in Sources */,
 				783774A02BA1D69C00F20904 /* DialogView.swift in Sources */,
 				783774B12BA4141B00F20904 /* GameVM.swift in Sources */,
-				783774BD2BA47DA300F20904 /* GameProgressContainer.xcdatamodeld in Sources */,
 				78C7FD202B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift in Sources */,
 				783774AA2BA3D7F100F20904 /* LottieView.swift in Sources */,
 				7804B1DB2BA7C55900E435C4 /* GameProgress.swift in Sources */,
@@ -455,19 +451,6 @@
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		783774BB2BA47DA300F20904 /* GameProgressContainer.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				783774BC2BA47DA300F20904 /* PlayingProgressContainer.xcdatamodel */,
-			);
-			currentVersion = 783774BC2BA47DA300F20904 /* PlayingProgressContainer.xcdatamodel */;
-			path = GameProgressContainer.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 78C7FD142B9EB95A0048E883 /* Project object */;
 }
