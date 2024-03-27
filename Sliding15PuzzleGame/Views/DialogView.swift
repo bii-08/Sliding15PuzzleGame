@@ -24,7 +24,7 @@ struct DialogView: View {
                            .font(.custom("Bradley Hand", size: 35))
                            .bold()
                            .padding()
-                           .foregroundColor(Color("excellent").opacity(0.8))
+                           .foregroundColor(Color("excellent"))
 
                        Text(message) // Text 'It took you 121 moves'
                            .font(.title3)
@@ -36,10 +36,9 @@ struct DialogView: View {
                                Image(systemName: "crown.fill")
                                    .foregroundColor(.yellow)
                                Text("Best play:" + " " + String(bestPlay) ) // Text 'Best play: 20'
-                                   .foregroundColor(Color("bestPlay"))
+                                   .foregroundColor(Color.yellow)
                            }
                        }
-                       
                        // Button 'New Game'
                        Button {
                           action()
@@ -47,7 +46,7 @@ struct DialogView: View {
                        } label: {
                            ZStack {
                                RoundedRectangle(cornerRadius: 20)
-                                   .foregroundColor(Color("dialogButton"))
+                                   .foregroundColor(Color.orange)
                                Text(buttonTitle)
                                    .font(.system(size: 18, weight: .bold))
                                    .foregroundColor(.white)
@@ -58,7 +57,7 @@ struct DialogView: View {
                    }
                    .fixedSize(horizontal: false, vertical: true)
                    .padding()
-                   .background(Color("dialog"))
+                   .background(.ultraThinMaterial)
                    .clipShape(RoundedRectangle(cornerRadius: 20))
                    .overlay(alignment: .topTrailing) {
                        Button {
@@ -80,7 +79,7 @@ struct DialogView: View {
                            offset = 0
                        }
                }
-               LottiePlusView(name: "Confetti", contentMode: .scaleAspectFill, play: $play)
+               LottieView(name: "Confetti", contentMode: .scaleAspectFill, play: $play)
                    .allowsHitTesting(false)
            }
            .onDisappear {
@@ -90,7 +89,7 @@ struct DialogView: View {
        }
       
      // FUNCTION: function to close dialog
-       func close() {
+       private func close() {
            withAnimation(.spring()) {
                offset = 1000
                isShowingAlert = false

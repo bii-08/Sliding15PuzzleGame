@@ -16,18 +16,16 @@ struct SplashView: View {
             ZStack {
                 Color("splash")
                     .ignoresSafeArea()
-                LottiePlusView(name: "puzzle", loopMode: .loop)
+                LottieView(name: "puzzle", loopMode: .loop)
                     .frame(width: 230, height: 180)
             }
             .onAppear {
                 withAnimation(.easeInOut){
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.isActive = true
                     }
                 }
-                
             }
-            
         }
     }
 }

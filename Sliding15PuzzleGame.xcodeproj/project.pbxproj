@@ -10,13 +10,11 @@
 		7804B1DB2BA7C55900E435C4 /* GameProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B1DA2BA7C55900E435C4 /* GameProgress.swift */; };
 		783774A02BA1D69C00F20904 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7837749F2BA1D69C00F20904 /* DialogView.swift */; };
 		783774A82BA3D74E00F20904 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 783774A72BA3D74E00F20904 /* Lottie */; };
-		783774AA2BA3D7F100F20904 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783774A92BA3D7F100F20904 /* LottieView.swift */; };
 		783774AD2BA3DA1200F20904 /* Confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 783774AC2BA3DA1200F20904 /* Confetti.json */; };
-		783774AF2BA3DE4600F20904 /* LottiePlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783774AE2BA3DE4600F20904 /* LottiePlusView.swift */; };
+		783774AF2BA3DE4600F20904 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783774AE2BA3DE4600F20904 /* LottieView.swift */; };
 		783774B12BA4141B00F20904 /* GameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783774B02BA4141B00F20904 /* GameVM.swift */; };
 		783774B52BA461FD00F20904 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783774B42BA461FD00F20904 /* SplashView.swift */; };
 		783774B72BA4744800F20904 /* puzzle.json in Resources */ = {isa = PBXBuildFile; fileRef = 783774B62BA4744800F20904 /* puzzle.json */; };
-		783774BA2BA479D200F20904 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783774B92BA479D200F20904 /* Extension.swift */; };
 		78C7FD202B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7FD1F2B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift */; };
 		78C7FD242B9EB95B0048E883 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C7FD232B9EB95B0048E883 /* Assets.xcassets */; };
 		78C7FD272B9EB95B0048E883 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C7FD262B9EB95B0048E883 /* Preview Assets.xcassets */; };
@@ -27,13 +25,11 @@
 /* Begin PBXFileReference section */
 		7804B1DA2BA7C55900E435C4 /* GameProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProgress.swift; sourceTree = "<group>"; };
 		7837749F2BA1D69C00F20904 /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
-		783774A92BA3D7F100F20904 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		783774AC2BA3DA1200F20904 /* Confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Confetti.json; sourceTree = "<group>"; };
-		783774AE2BA3DE4600F20904 /* LottiePlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottiePlusView.swift; sourceTree = "<group>"; };
+		783774AE2BA3DE4600F20904 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		783774B02BA4141B00F20904 /* GameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
 		783774B42BA461FD00F20904 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		783774B62BA4744800F20904 /* puzzle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = puzzle.json; sourceTree = "<group>"; };
-		783774B92BA479D200F20904 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		78C7FD1C2B9EB95A0048E883 /* Sliding15PuzzleGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sliding15PuzzleGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C7FD1F2B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliding15PuzzleGameApp.swift; sourceTree = "<group>"; };
 		78C7FD232B9EB95B0048E883 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,9 +64,8 @@
 				783774B42BA461FD00F20904 /* SplashView.swift */,
 				78C7FD352B9EC8F70048E883 /* GameView.swift */,
 				7837749F2BA1D69C00F20904 /* DialogView.swift */,
-				783774AE2BA3DE4600F20904 /* LottiePlusView.swift */,
+				783774AE2BA3DE4600F20904 /* LottieView.swift */,
 				78C7FD332B9EC7300048E883 /* TileView.swift */,
-				783774A92BA3D7F100F20904 /* LottieView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -90,14 +85,6 @@
 				783774B62BA4744800F20904 /* puzzle.json */,
 			);
 			path = "Lottie Files";
-			sourceTree = "<group>";
-		};
-		783774B82BA4799E00F20904 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				783774B92BA479D200F20904 /* Extension.swift */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		78C7FD132B9EB95A0048E883 = {
@@ -123,7 +110,6 @@
 				7804B1D92BA7C50300E435C4 /* Models */,
 				7837749D2BA17DF500F20904 /* Views */,
 				7837749E2BA17E0D00F20904 /* ViewModel */,
-				783774B82BA4799E00F20904 /* Extension */,
 				783774AB2BA3D9E400F20904 /* Lottie Files */,
 				78C7FD232B9EB95B0048E883 /* Assets.xcassets */,
 				78C7FD252B9EB95B0048E883 /* Preview Content */,
@@ -217,15 +203,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				783774BA2BA479D200F20904 /* Extension.swift in Sources */,
 				783774B52BA461FD00F20904 /* SplashView.swift in Sources */,
 				78C7FD342B9EC7300048E883 /* TileView.swift in Sources */,
 				78C7FD362B9EC8F70048E883 /* GameView.swift in Sources */,
-				783774AF2BA3DE4600F20904 /* LottiePlusView.swift in Sources */,
+				783774AF2BA3DE4600F20904 /* LottieView.swift in Sources */,
 				783774A02BA1D69C00F20904 /* DialogView.swift in Sources */,
 				783774B12BA4141B00F20904 /* GameVM.swift in Sources */,
 				78C7FD202B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift in Sources */,
-				783774AA2BA3D7F100F20904 /* LottieView.swift in Sources */,
 				7804B1DB2BA7C55900E435C4 /* GameProgress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,11 +347,11 @@
 				DEVELOPMENT_TEAM = VD2P9YC9Z6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "15 Puzzle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -392,11 +376,11 @@
 				DEVELOPMENT_TEAM = VD2P9YC9Z6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "15 Puzzle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
