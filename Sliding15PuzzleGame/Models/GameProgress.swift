@@ -9,7 +9,15 @@ import Foundation
 
 struct GameProgress: Codable {
     var tiles: [Int]
+    var picture: Picture?
     var totalMoves: Int
     var bestPlay: [Int]
     var timeElapsed: Double
+}
+
+enum Picture: String, Identifiable, Codable {
+    var id: Self {
+        return self
+    }
+    case boyAndCat, eating, fly, japaneseHouse, maxAndJess, pancake, temple, udonYa
 }

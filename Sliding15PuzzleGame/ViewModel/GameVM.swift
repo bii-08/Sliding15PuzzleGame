@@ -13,21 +13,22 @@ import UIKit
 class GameVM: ObservableObject {
     let size: Int
     let tileSize: CGFloat
-    
+    @Published var selectedPicture: Picture?
     @Published var cancellable: AnyCancellable? = nil
     private var message = ""
     
-    @Published var isShowingAlert = false
-    @Published var isShowingConfirmation = false
-    @Published var isContinued = false
+    @Published var showingDismissAlert = false
+    @Published var showingCongratulationAlert = false
+
     @Published var isPaused = false
-    private var isShuffling = false
+    var isShuffling = false
     
     @Published var tiles: [Int] = Array(1...15) + [0]
     
     @Published var totalMoves = 0
     @Published var bestPlay: [Int]
     @Published var timeElapsed: Double = 0.0
+
     
     private var lastEmptyIndex = -1 // Update the index of the previously empty tile.
     var timer: Timer!
@@ -39,23 +40,50 @@ class GameVM: ObservableObject {
         self.timeElapsed = timeElapsed
         self.size = size
         self.tileSize = tileSize
-        
-        print("initializing game")
-        
+
         // Check if there are any saved data in User Defaults.
         if UserDefaults.standard.data(forKey: "savedProgress") != nil {
-            isShowingConfirmation = true
             getSavedProgress()
+            start()
+            if timeElapsed != 0.0 && totalMoves != 0 && tiles != [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
+                UserDefaults.standard.removeObject(forKey: "savedProgress")
+            }
         }
+    }
+    
+    init(size: Int = 4, tileSize: CGFloat = 80, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, bestPlay: [Int] = [1_000_000], timeElapsed: Double = 0.0, picture: Picture?) {
+        self.tiles = tiles
+        self.totalMoves = totalMoves
+        self.bestPlay = bestPlay
+        self.timeElapsed = timeElapsed
+        self.size = size
+        self.tileSize = tileSize
+        self.selectedPicture = picture
+
+        // Check if there are any saved data in User Defaults.
+        if UserDefaults.standard.data(forKey: "savedProgress") != nil {
+            getSavedProgress()
+            start()
+            if timeElapsed != 0.0 && totalMoves != 0 && tiles != [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
+                UserDefaults.standard.removeObject(forKey: "savedProgress")
+            }
+        }
+    }
+    // FUNCTION: to reset data to initial value in order to redraw GameView.
+    func reset() {
+        self.timeElapsed = 0.0
+        self.totalMoves = 0
+        self.isPaused = false
+        self.showingDismissAlert = false
+        self.tiles = Array(1...15) + [0]
     }
     
     // FUNCTION: to save user's game progress.
     func saveProgress() {
-        let data = GameProgress(tiles: tiles, totalMoves: totalMoves, bestPlay: bestPlay, timeElapsed: timeElapsed)
+        let data = GameProgress(tiles: tiles, picture: selectedPicture, totalMoves: totalMoves, bestPlay: bestPlay, timeElapsed: timeElapsed)
         if let encodedProgress = try? JSONEncoder().encode(data) {
             UserDefaults.standard.set(encodedProgress, forKey: "savedProgress")
         }
-        
     }
     
     // FUNCTION: to get user's game progress.
@@ -68,11 +96,13 @@ class GameVM: ObservableObject {
         self.totalMoves = savedProgress.totalMoves
         self.bestPlay = savedProgress.bestPlay
         self.timeElapsed = savedProgress.timeElapsed
+        self.selectedPicture = savedProgress.picture
     }
     
     // FUNCTION: to move tiles around
     func tapTile(at position: (row: Int, column: Int)) {
         guard !isShuffling else { return }
+        guard !showingDismissAlert else { return }
         let index = position.row * size + position.column
         
         // Check if the tapped tile can be moved.
@@ -91,7 +121,7 @@ class GameVM: ObservableObject {
                 pause()
                 bestPlay.append(totalMoves)
                 print(bestPlay)
-                isShowingAlert.toggle()
+                showingCongratulationAlert.toggle()
                 message = "Execellent! It took you \(totalMoves) moves"
                 print("Execellent! It took you \(totalMoves) moves")
             }
@@ -100,7 +130,7 @@ class GameVM: ObservableObject {
     
     // FUNCTION: to verify if the selected tile can be moved or not.
     private func canMoveTile(at position: (row: Int, column: Int)) -> Bool {
-        //Check if the tapped tilw is adjacent to the empty tile.
+        //Check if the tapped tile is adjacent to the empty tile.
         let emptyIndex = tiles.firstIndex(of: 0)!
         let emptyPosition = (emptyIndex / size, emptyIndex % size)
         if tiles == [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
@@ -136,11 +166,11 @@ class GameVM: ObservableObject {
     func shuffle() {
         self.isShuffling = true
         lastEmptyIndex = -1
-        var num = 50  // The puzzle will be shuffled 50 times.
+        var num = 5  // The puzzle will be shuffled 50 times.
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { timer in
             num -= 1
-            if num == 40 {
+            if num == 3 {
                 timer.invalidate() // with the first 10 moves, it will shuffle the tiles with TimeInterval = 0.3 then stop Timer one time when num = 40.
                 self.timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in // the remaining moves will be shuffled with new timer = 0.05_ faster.
                     num -= 1
@@ -200,7 +230,7 @@ class GameVM: ObservableObject {
     
     // FUNCTION: to disable pause button when needed.
     func isButtonDisable() -> Bool {
-        if totalMoves == 0 || isShowingAlert || tiles == [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
+        if totalMoves == 0 || showingCongratulationAlert || tiles == [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
             return true
         }
         return false

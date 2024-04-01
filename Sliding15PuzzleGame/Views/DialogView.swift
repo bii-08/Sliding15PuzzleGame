@@ -21,21 +21,22 @@ struct DialogView: View {
            ZStack {
                VStack {
                        Text(title) // Text 'Excellent!'
-                           .font(.custom("Bradley Hand", size: 35))
+                       .font(.custom("Chalkboard SE", size: 35))
                            .bold()
                            .padding()
                            .foregroundColor(Color("excellent"))
 
-                       Text(message) // Text 'It took you 121 moves'
-                           .font(.title3)
-                           .foregroundColor(.white)
-                       Spacer()
+                   Text(message) // Text 'It took you 121 moves'
+                       .font(.custom("Chalkboard SE", size: 20))
+                       .foregroundColor(.white)
+                   Spacer()
                 
                        if bestPlay != 0 {
                            HStack {
                                Image(systemName: "crown.fill")
                                    .foregroundColor(.yellow)
                                Text("Best play:" + " " + String(bestPlay) ) // Text 'Best play: 20'
+                                   .font(.custom("Chalkboard SE", size: 20))
                                    .foregroundColor(Color.yellow)
                            }
                        }
@@ -71,7 +72,7 @@ struct DialogView: View {
                        .bold()
                        .padding()
                    }
-                   .shadow(radius: 20)
+                   .shadow(radius: 10)
                    .padding(30)
                    .offset(x: 0, y: offset)
                    .onAppear {

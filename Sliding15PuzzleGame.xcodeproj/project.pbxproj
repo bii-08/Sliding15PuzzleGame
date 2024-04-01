@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		7804B1DB2BA7C55900E435C4 /* GameProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B1DA2BA7C55900E435C4 /* GameProgress.swift */; };
+		7834B94C2BB50C2500AA7839 /* GameSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834B94B2BB50C2400AA7839 /* GameSelectionView.swift */; };
+		7834B94E2BB51D8A00AA7839 /* PicturesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834B94D2BB51D8A00AA7839 /* PicturesListView.swift */; };
+		7834B9522BB6F15000AA7839 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834B9512BB6F15000AA7839 /* CustomAlertView.swift */; };
+		7834B9552BB6FBCB00AA7839 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834B9542BB6FBCB00AA7839 /* Extension.swift */; };
 		783774A02BA1D69C00F20904 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7837749F2BA1D69C00F20904 /* DialogView.swift */; };
 		783774A82BA3D74E00F20904 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 783774A72BA3D74E00F20904 /* Lottie */; };
 		783774AD2BA3DA1200F20904 /* Confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 783774AC2BA3DA1200F20904 /* Confetti.json */; };
@@ -24,6 +28,10 @@
 
 /* Begin PBXFileReference section */
 		7804B1DA2BA7C55900E435C4 /* GameProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProgress.swift; sourceTree = "<group>"; };
+		7834B94B2BB50C2400AA7839 /* GameSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionView.swift; sourceTree = "<group>"; };
+		7834B94D2BB51D8A00AA7839 /* PicturesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesListView.swift; sourceTree = "<group>"; };
+		7834B9512BB6F15000AA7839 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		7834B9542BB6FBCB00AA7839 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		7837749F2BA1D69C00F20904 /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		783774AC2BA3DA1200F20904 /* Confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Confetti.json; sourceTree = "<group>"; };
 		783774AE2BA3DE4600F20904 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -58,14 +66,25 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		7834B9532BB6FB9600AA7839 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7834B9542BB6FBCB00AA7839 /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		7837749D2BA17DF500F20904 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				783774B42BA461FD00F20904 /* SplashView.swift */,
+				7834B94B2BB50C2400AA7839 /* GameSelectionView.swift */,
 				78C7FD352B9EC8F70048E883 /* GameView.swift */,
 				7837749F2BA1D69C00F20904 /* DialogView.swift */,
 				783774AE2BA3DE4600F20904 /* LottieView.swift */,
 				78C7FD332B9EC7300048E883 /* TileView.swift */,
+				7834B94D2BB51D8A00AA7839 /* PicturesListView.swift */,
+				7834B9512BB6F15000AA7839 /* CustomAlertView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -110,6 +129,7 @@
 				7804B1D92BA7C50300E435C4 /* Models */,
 				7837749D2BA17DF500F20904 /* Views */,
 				7837749E2BA17E0D00F20904 /* ViewModel */,
+				7834B9532BB6FB9600AA7839 /* Extension */,
 				783774AB2BA3D9E400F20904 /* Lottie Files */,
 				78C7FD232B9EB95B0048E883 /* Assets.xcassets */,
 				78C7FD252B9EB95B0048E883 /* Preview Content */,
@@ -205,12 +225,16 @@
 			files = (
 				783774B52BA461FD00F20904 /* SplashView.swift in Sources */,
 				78C7FD342B9EC7300048E883 /* TileView.swift in Sources */,
+				7834B9522BB6F15000AA7839 /* CustomAlertView.swift in Sources */,
+				7834B9552BB6FBCB00AA7839 /* Extension.swift in Sources */,
 				78C7FD362B9EC8F70048E883 /* GameView.swift in Sources */,
 				783774AF2BA3DE4600F20904 /* LottieView.swift in Sources */,
 				783774A02BA1D69C00F20904 /* DialogView.swift in Sources */,
 				783774B12BA4141B00F20904 /* GameVM.swift in Sources */,
+				7834B94C2BB50C2500AA7839 /* GameSelectionView.swift in Sources */,
 				78C7FD202B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift in Sources */,
 				7804B1DB2BA7C55900E435C4 /* GameProgress.swift in Sources */,
+				7834B94E2BB51D8A00AA7839 /* PicturesListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

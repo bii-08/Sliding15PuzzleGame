@@ -10,7 +10,10 @@ import SwiftUI
 struct TileView: View {
     let number: Int
     let size: CGFloat
+    let picture: Picture?
     let onTap: () -> Void
+    
+    
     
     var body: some View {
         ZStack {
@@ -18,10 +21,17 @@ struct TileView: View {
                 Color.gray.opacity(0.3)
             } else {
                 Color("tile")
-                Text("\(number)")
-                    .font(.system(size: CGFloat(size) * 0.6))
-                    .bold()
-                    .foregroundColor(.white)
+                if let picture {
+                    Image("\(picture.rawValue)_\(number)")
+                        .resizable()
+                } else {
+                    Text("\(number)")
+                        .font(.system(size: CGFloat(size) * 0.6))
+                        .bold()
+                        .foregroundColor(.white)
+                }
+                
+                
             }
         }
         .frame(width: size, height: size)
@@ -33,5 +43,5 @@ struct TileView: View {
 }
 
 #Preview {
-    TileView(number: 8, size: 50, onTap: {})
+    TileView(number: 8, size: 50, picture: nil, onTap: {})
 }
