@@ -23,11 +23,11 @@ struct SplashView: View {
                     if colorScheme == .light {
                         Image("Puzzle icon_Light mode")
                             .resizable()
-                            .frame(width: 400,height: 200)
+                            .frame(width: 350,height: 150)
                     } else {
                         Image("Puzzle icon_Dark mode")
                             .resizable()
-                            .frame(width: 400,height: 200)
+                            .frame(width: 350,height: 150)
                     }
                 }
                 .scaleEffect(size)

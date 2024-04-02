@@ -12,7 +12,7 @@ struct GameView: View {
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.dismiss) var dismiss
     @ObservedObject var vm: GameVM
-
+  
     init(vm: GameVM) {
         self.vm = vm
     }
@@ -33,16 +33,40 @@ struct GameView: View {
                 Spacer()
                 // Logics to display picture
                 if let picture = vm.selectedPicture {
-                    Image("\(picture.rawValue)")
-                        .resizable()
-                        .frame(width: 200, height: 200)
-                        .cornerRadius(5)
+                    HStack {
+                        // Game Picture
+                        Image("\(picture.rawValue)")
+                            .resizable()
+                            .frame(width: 200, height: 200)
+                            .cornerRadius(5)
+                        
+                           // Hint/ Hide button
+                            Button {
+                                vm.showingHint.toggle()
+                            } label: {
+                                VStack {
+                                    Image(systemName: vm.showingHint ? "eye.slash" : "lightbulb.min.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 25, height: 25)
+                                        .foregroundColor(vm.showingDismissAlert || vm.isShuffling || vm.showingCongratulationAlert ? Color.gray : Color("tile"))
+                                       
+                                    Text(vm.showingHint ? "Hide" : "Hint")
+                                        .animation(.none)
+                                        .font(Font.custom("Chalkboard SE", size: 18))
+                                        .frame(minWidth: 65)
+                                        .foregroundColor(vm.showingDismissAlert || vm.isShuffling || vm.showingCongratulationAlert ? Color.gray : Color("timerAndMovesButton"))
+                                }
+                            }
+                            .disabled(vm.showingDismissAlert || vm.isShuffling || vm.showingCongratulationAlert)
+                    }
+                    
                 }
                 Spacer()
                 ForEach(0..<vm.size, id: \.self) { row in
                     HStack {
                         ForEach(0..<vm.size, id: \.self) { column in
-                            TileView(number: vm.tiles[row * vm.size + column], size: vm.tileSize, picture: vm.selectedPicture) {
+                            TileView(number: vm.tiles[row * vm.size + column], size: vm.tileSize, picture: vm.selectedPicture, showingHint: vm.showingHint) {
                                 vm.tapTile(at: (row, column))
                             }
                         }
@@ -77,6 +101,7 @@ struct GameView: View {
                  : nil)
         .onDisappear {
             vm.pause()
+            vm.showingHint = false
         }
         .onChange(of: scenePhase) { phase in
             switch phase {

@@ -29,6 +29,7 @@ class GameVM: ObservableObject {
     @Published var bestPlay: [Int]
     @Published var timeElapsed: Double = 0.0
 
+    @Published var showingHint = false
     
     private var lastEmptyIndex = -1 // Update the index of the previously empty tile.
     var timer: Timer!
@@ -171,11 +172,11 @@ class GameVM: ObservableObject {
     func shuffle() {
         self.isShuffling = true
         lastEmptyIndex = -1
-        var num = 5  // The puzzle will be shuffled 50 times.
+        var num = 50  // The puzzle will be shuffled 50 times.
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { timer in
             num -= 1
-            if num == 3 {
+            if num == 40 {
                 timer.invalidate() // with the first 10 moves, it will shuffle the tiles with TimeInterval = 0.3 then stop Timer one time when num = 40.
                 self.timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in // the remaining moves will be shuffled with new timer = 0.05_ faster.
                     num -= 1
