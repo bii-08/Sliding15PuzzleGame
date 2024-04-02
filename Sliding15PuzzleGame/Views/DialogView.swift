@@ -49,6 +49,7 @@ struct DialogView: View {
                                RoundedRectangle(cornerRadius: 20)
                                    .foregroundColor(Color.orange)
                                Text(buttonTitle)
+//                                   .font(.custom("Chalkboard SE", size: 20))
                                    .font(.system(size: 18, weight: .bold))
                                    .foregroundColor(.white)
                                    .padding()

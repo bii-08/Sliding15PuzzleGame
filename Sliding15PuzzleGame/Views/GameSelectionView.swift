@@ -11,7 +11,7 @@ struct GameSelectionView: View {
 
     @Environment(\.colorScheme) var colorScheme
     @State var showingSheet = false
-    @State var showingGame = false
+    @State var showingClassicGame = false
     @State var showingPictureGame = false
     @State var selectedPicture: Picture?
     @State var isShowingContinueAlert = false
@@ -20,11 +20,14 @@ struct GameSelectionView: View {
             ZStack {
                 Color("background")
                     .ignoresSafeArea()
-                
               //   This is an alert asking the user for confirmation on whether they want to CONTINUE the previous game or not.
                 if isShowingContinueAlert {
                     CustomAlertView(title: "Confirmation", message: "Do you want to continue?", primaryButtonTitle: "Yes", action1: {
-                        showingGame = true
+                        if selectedPicture == nil {
+                            showingClassicGame = true
+                        } else {
+                            showingPictureGame = true
+                        }
                         isShowingContinueAlert = false
                         
                     }, secondaryButtonTitle: "New Game") {
@@ -35,25 +38,29 @@ struct GameSelectionView: View {
                     }
                     .zIndex(5)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
-
                 }
                 
                 VStack(alignment:.leading) {
                     Spacer()
-                    if colorScheme == .light {
-                        Image("Puzzle icon_Light mode")
-                            .resizable()
-                            .frame(width: 200,height: 100)
-                    } else {
-                        Image("Puzzle icon_Dark mode")
-                            .resizable()
-                            .frame(width: 200,height: 100)
+                    // LOGO
+                    HStack {
+                        if colorScheme == .light {
+                            Image("Puzzle icon_Light mode")
+                                .resizable()
+                                .frame(width: 200,height: 100)
+                        } else {
+                            Image("Puzzle icon_Dark mode")
+                                .resizable()
+                                .frame(width: 200,height: 100)
+                        }
                     }
+                    .padding(.horizontal, 47)
                     Spacer()
                     
+                    // CLASSIC button & PICTURE button
                     HStack {
                         Button {
-                            self.showingGame.toggle()
+                            self.showingClassicGame.toggle()
                         } label: {
                             Text("Classic")
                                 .font(Font.custom("Chalkboard SE", size: 25))
@@ -79,7 +86,7 @@ struct GameSelectionView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
                         }
                     }
-                    .navigationDestination(isPresented: $showingGame, destination: {
+                    .navigationDestination(isPresented: $showingClassicGame, destination: {
                         GameView(vm: GameVM())
                     })
                     .navigationDestination(isPresented: $showingPictureGame, destination: {
@@ -92,11 +99,12 @@ struct GameSelectionView: View {
                 }
             }
             .onAppear {
-                if UserDefaults.standard.data(forKey: "savedProgress") != nil {
+                if let data = UserDefaults.standard.data(forKey: "savedProgress"),
+                   let savedProgress = try? JSONDecoder().decode(GameProgress.self, from: data) {
+                    self.selectedPicture = savedProgress.picture
                     isShowingContinueAlert = true
                 }
             }
-            
         }
         .sheet(isPresented: $showingSheet) {
             HStack {

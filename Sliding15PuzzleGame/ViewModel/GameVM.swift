@@ -33,6 +33,7 @@ class GameVM: ObservableObject {
     private var lastEmptyIndex = -1 // Update the index of the previously empty tile.
     var timer: Timer!
     
+    // INIT: for the classic game
     init(size: Int = 4, tileSize: CGFloat = 80, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, bestPlay: [Int] = [1_000_000], timeElapsed: Double = 0.0) {
         self.tiles = tiles
         self.totalMoves = totalMoves
@@ -41,16 +42,16 @@ class GameVM: ObservableObject {
         self.size = size
         self.tileSize = tileSize
 
-        // Check if there are any saved data in User Defaults.
-        if UserDefaults.standard.data(forKey: "savedProgress") != nil {
-            getSavedProgress()
+        if getSavedProgress(isDefault: true) {
             start()
             if timeElapsed != 0.0 && totalMoves != 0 && tiles != [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
                 UserDefaults.standard.removeObject(forKey: "savedProgress")
             }
         }
+
     }
     
+    // INIT: for the picture game
     init(size: Int = 4, tileSize: CGFloat = 80, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, bestPlay: [Int] = [1_000_000], timeElapsed: Double = 0.0, picture: Picture?) {
         self.tiles = tiles
         self.totalMoves = totalMoves
@@ -60,9 +61,7 @@ class GameVM: ObservableObject {
         self.tileSize = tileSize
         self.selectedPicture = picture
 
-        // Check if there are any saved data in User Defaults.
-        if UserDefaults.standard.data(forKey: "savedProgress") != nil {
-            getSavedProgress()
+        if getSavedProgress(isDefault: false) {
             start()
             if timeElapsed != 0.0 && totalMoves != 0 && tiles != [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
                 UserDefaults.standard.removeObject(forKey: "savedProgress")
@@ -87,16 +86,22 @@ class GameVM: ObservableObject {
     }
     
     // FUNCTION: to get user's game progress.
-    private func getSavedProgress() {
+    private func getSavedProgress(isDefault: Bool) -> Bool {
         guard
             let data = UserDefaults.standard.data(forKey: "savedProgress"),
             let savedProgress = try? JSONDecoder().decode(GameProgress.self, from: data)
-        else { return }
-        self.tiles = savedProgress.tiles
-        self.totalMoves = savedProgress.totalMoves
-        self.bestPlay = savedProgress.bestPlay
-        self.timeElapsed = savedProgress.timeElapsed
-        self.selectedPicture = savedProgress.picture
+        else { return false }
+        
+        if isDefault && savedProgress.picture == nil || !isDefault && savedProgress.picture != nil {
+            self.tiles = savedProgress.tiles
+            self.totalMoves = savedProgress.totalMoves
+            self.bestPlay = savedProgress.bestPlay
+            self.timeElapsed = savedProgress.timeElapsed
+            self.selectedPicture = savedProgress.picture
+            
+            return true
+        }
+        return false
     }
     
     // FUNCTION: to move tiles around

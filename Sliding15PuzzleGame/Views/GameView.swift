@@ -16,8 +16,8 @@ struct GameView: View {
     init(vm: GameVM) {
         self.vm = vm
     }
+    
     var body: some View {
-        
         ZStack {
             Color("background")
                 .ignoresSafeArea()
@@ -31,6 +31,7 @@ struct GameView: View {
                 Spacer()
                 Spacer()
                 Spacer()
+                // Logics to display picture
                 if let picture = vm.selectedPicture {
                     Image("\(picture.rawValue)")
                         .resizable()
@@ -53,7 +54,7 @@ struct GameView: View {
             }
             .navigationBarBackButtonHidden(true)
             
-            // This is an alert asking the user for confirmation on whether they want to DISMISS the game or not
+            // This is an alert asking the user for confirmation on whether they want to DISMISS the game or not.
             if vm.showingDismissAlert {
                 CustomAlertView(title: "Confirmation", message: "Are you sure you want to cancel the game?", primaryButtonTitle: "Yes", action1: {
                     UserDefaults.standard.removeObject(forKey: "savedProgress")
@@ -81,28 +82,28 @@ struct GameView: View {
             switch phase {
             case .background:
                 vm.pause()
-                // Case: Saving game when tiles not being moved yet && tiles' set up value is initial value [1,...,15,0]
+                // CASE: Saving game when app went to background, tiles are being moved && tiles' set up value is not initial value [1,...,15,0]
                 if vm.totalMoves != 0 && vm.tiles != [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
                     vm.saveProgress()
                 }
             case .inactive:
-                // When game is not paused, the start() function is active.
+                // CASE: When the game is not paused, then the start() function will be active.
                 if !vm.isPaused {
                     vm.start()
                 }
-                // When the game is finished or showingDismissAlert is true
+                // CASE: When the game is finished or showingDismissAlert is popped up.
                 if vm.showingCongratulationAlert || vm.showingDismissAlert {
                     vm.pause()
                 }
-                // When user has moved some tiles and finished it correctly -> stop counting time.
+                // CASE: When user has moved some tiles and finished it correctly -> stop counting time.
                 if vm.timeElapsed != 0.0 && vm.tiles == [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
                     vm.pause()
                 }
-                // when tiles is not moved and tiles's set up value is initial value
+                // CASE: When tiles are not moved and tiles's set up value is initial value.
                 if vm.totalMoves == 0 && vm.tiles == [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
                     vm.pause()
                 }
-                // when tiles is not moved and total moves = 0
+                // CASE: When tiles are not moved and total moves = 0
                 if vm.timeElapsed == 0.0 && vm.totalMoves == 0 {
                     vm.pause()
                 }
@@ -117,10 +118,9 @@ extension GameView {
     private var overlayView: some View {
         ZStack {
             Color(.white.opacity(0.6)).ignoresSafeArea()
-            
             Button {
                 vm.isPaused.toggle()
-                // have to resume the timer here
+                // Have to resume the timer here.
                 vm.start()
             } label: {
                 Image(systemName: "play.circle.fill")
@@ -134,9 +134,8 @@ extension GameView {
     private var controlPanel: some View {
         HStack(spacing: 20) {
             Spacer()
-            // back button
+            // Back button
             Button(action: {
-//                dismiss()
                 if vm.timeElapsed == 0.0 && vm.tiles == [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
                     dismiss()
                 } else if vm.timeElapsed != 0.0 && vm.tiles == [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] && !vm.showingCongratulationAlert {
@@ -148,21 +147,19 @@ extension GameView {
                     }
                     vm.pause()
                 }
-                
             }) {
                 Image(systemName: "arrowshape.turn.up.backward.fill")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 25, height: 25)
             }
-//            .background(.white)
             .tint(Color("tile"))
             .disabled(vm.showingDismissAlert || vm.isShuffling || vm.showingCongratulationAlert)
             
-            // pause buttom
+            // Pause buttom
             Button {
                 vm.isPaused.toggle()
-                // Have to pause the timer here
+                // Have to pause the timer here.
                 vm.pause()
             } label: {
                 VStack(spacing: 4.5) {
@@ -176,14 +173,12 @@ extension GameView {
                         .animation(.none)
                         .font(Font.custom("Chalkboard SE", size: 18))
                         .frame(minWidth: 65)
-//                        .background(.white)
                         .foregroundColor(vm.isButtonDisable() || vm.showingDismissAlert ? Color(.gray) : Color("timerAndMovesButton"))
                 }
             }
-//            .background(.white)
             .disabled(vm.isButtonDisable() || vm.showingDismissAlert)
             
-            // shuffle button
+            // Shuffle button
             Button(action: {
                 vm.shuffle()
             }, label: {
@@ -196,11 +191,9 @@ extension GameView {
                     Text("Shuffle")
                         .font(Font.custom("Chalkboard SE", size: 18))
                         .frame(minWidth: 80)
-//                        .background(.white)
                         .foregroundColor(vm.showingCongratulationAlert == true || vm.showingDismissAlert ? Color(.gray) : Color("timerAndMovesButton"))
                 }
             })
-//            .background(.white)
             .disabled(vm.showingCongratulationAlert == true || vm.showingDismissAlert)
             Spacer()
             VStack(alignment: .leading, spacing: 5) {
@@ -209,27 +202,22 @@ extension GameView {
                         .font(Font.custom("Chalkboard SE", size: 18))
                         .frame(width: 38)
                         .foregroundColor(Color("tile"))
-//                        .background(.white)
                     Text("\(vm.formatMmSs(counter: vm.timeElapsed))")
                         .foregroundColor(Color("timerAndMovesButton"))
                         .font(.headline)
                         .frame(width: 70, height: 15)
-//                        .background(.white)
                 }
                 HStack(spacing: 0) {
                     Image(systemName: "arrow.up.and.down.and.arrow.left.and.right")
                         .font(Font.custom("Chalkboard SE", size: 18))
                         .frame(width: 40)
                         .foregroundColor(Color("tile"))
-//                        .background(.white)
                     Text("\(vm.totalMoves)")
                         .foregroundColor(Color("timerAndMovesButton"))
                         .font(.headline)
                         .frame(width: 70, height: 15)
-//                        .background(.white)
                 }
             }
-//            .background(.white)
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: 55)
