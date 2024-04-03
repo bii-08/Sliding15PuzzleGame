@@ -35,7 +35,7 @@ class GameVM: ObservableObject {
     var timer: Timer!
     
     // INIT: for the classic game
-    init(size: Int = 4, tileSize: CGFloat = 80, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, bestPlay: [Int] = [1_000_000], timeElapsed: Double = 0.0) {
+    init(size: Int = 4, tileSize: CGFloat = 80, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, bestPlay: [Int] = [-1], timeElapsed: Double = 0.0) {
         self.tiles = tiles
         self.totalMoves = totalMoves
         self.bestPlay = bestPlay
@@ -53,7 +53,7 @@ class GameVM: ObservableObject {
     }
     
     // INIT: for the picture game
-    init(size: Int = 4, tileSize: CGFloat = 80, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, bestPlay: [Int] = [1_000_000], timeElapsed: Double = 0.0, picture: Picture?) {
+    init(size: Int = 4, tileSize: CGFloat = 80, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, bestPlay: [Int] = [-1], timeElapsed: Double = 0.0, picture: Picture?) {
         self.tiles = tiles
         self.totalMoves = totalMoves
         self.bestPlay = bestPlay
@@ -126,7 +126,6 @@ class GameVM: ObservableObject {
             if tiles == [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
                 pause()
                 bestPlay.append(totalMoves)
-                print(bestPlay)
                 showingCongratulationAlert.toggle()
                 message = "Execellent! It took you \(totalMoves) moves"
                 print("Execellent! It took you \(totalMoves) moves")

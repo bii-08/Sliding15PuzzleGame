@@ -31,7 +31,7 @@ struct DialogView: View {
                        .foregroundColor(.white)
                    Spacer()
                 
-                       if bestPlay != 0 {
+                       if bestPlay > 0 {
                            HStack {
                                Image(systemName: "crown.fill")
                                    .foregroundColor(.yellow)
