@@ -4,7 +4,9 @@
 The '15 puzzle' is a timeless puzzle that offers 2 distinct ways to play: 
 Arranging numbered tiles or solving picture puzzles with hints.
 
-## Execution
+<p align=”center”>
+<h3><img width="100" height="55" src="https://icons8.com/icon/wqGGiWofWlvJ/productivity" alt=”my banner”>  <strong>Execution</h3></strong>
+</p>
 
 The app is entirely written in Swift, featuring a user-friendly UI that makes it easy to enjoy the game.
 

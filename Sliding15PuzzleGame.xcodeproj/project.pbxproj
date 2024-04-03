@@ -12,6 +12,7 @@
 		7834B94E2BB51D8A00AA7839 /* PicturesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834B94D2BB51D8A00AA7839 /* PicturesListView.swift */; };
 		7834B9522BB6F15000AA7839 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834B9512BB6F15000AA7839 /* CustomAlertView.swift */; };
 		7834B9552BB6FBCB00AA7839 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834B9542BB6FBCB00AA7839 /* Extension.swift */; };
+		7834B9582BBD11B400AA7839 /* Screenshots.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7834B9572BBD11B400AA7839 /* Screenshots.xcassets */; };
 		783774A02BA1D69C00F20904 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7837749F2BA1D69C00F20904 /* DialogView.swift */; };
 		783774A82BA3D74E00F20904 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 783774A72BA3D74E00F20904 /* Lottie */; };
 		783774AD2BA3DA1200F20904 /* Confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 783774AC2BA3DA1200F20904 /* Confetti.json */; };
@@ -32,6 +33,7 @@
 		7834B94D2BB51D8A00AA7839 /* PicturesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesListView.swift; sourceTree = "<group>"; };
 		7834B9512BB6F15000AA7839 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		7834B9542BB6FBCB00AA7839 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		7834B9572BBD11B400AA7839 /* Screenshots.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Screenshots.xcassets; sourceTree = "<group>"; };
 		7837749F2BA1D69C00F20904 /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		783774AC2BA3DA1200F20904 /* Confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Confetti.json; sourceTree = "<group>"; };
 		783774AE2BA3DE4600F20904 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 				7834B9542BB6FBCB00AA7839 /* Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		7834B9562BBD114400AA7839 /* README_Image */ = {
+			isa = PBXGroup;
+			children = (
+				7834B9572BBD11B400AA7839 /* Screenshots.xcassets */,
+			);
+			path = README_Image;
 			sourceTree = "<group>";
 		};
 		7837749D2BA17DF500F20904 /* Views */ = {
@@ -132,6 +142,7 @@
 				7834B9532BB6FB9600AA7839 /* Extension */,
 				783774AB2BA3D9E400F20904 /* Lottie Files */,
 				78C7FD232B9EB95B0048E883 /* Assets.xcassets */,
+				7834B9562BBD114400AA7839 /* README_Image */,
 				78C7FD252B9EB95B0048E883 /* Preview Content */,
 			);
 			path = Sliding15PuzzleGame;
@@ -209,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7834B9582BBD11B400AA7839 /* Screenshots.xcassets in Resources */,
 				783774AD2BA3DA1200F20904 /* Confetti.json in Resources */,
 				783774B72BA4744800F20904 /* puzzle.json in Resources */,
 				78C7FD272B9EB95B0048E883 /* Preview Assets.xcassets in Resources */,
