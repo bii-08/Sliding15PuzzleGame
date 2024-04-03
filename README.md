@@ -16,7 +16,10 @@ The app is entirely written in Swift, featuring a user-friendly UI that makes it
   
 ##  📸  Demo
 
-<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Classic.imageset/Screenshot_Classic.png" width="350"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Picture.imageset/Screenshot_Picture.png" width="350"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/15PuzzleDemo_corner.dataset/15PuzzleDemo_corner.gif" width="240"  title="demo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Selection.imageset/Screenshot_Selection.png" width="300"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Classic.imageset/Screenshot_Classic.png" width="300"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Picture.imageset/Screenshot_Picture.png" width="300"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_PictureList.imageset/Screenshot_PictureList.png" width="300"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_PictureList.imageset/Screenshot_PictureList.png" width="300"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/15PuzzleDemo_corner.dataset/15PuzzleDemo_corner.gif" width="280"  title="demo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
