@@ -15,6 +15,7 @@ struct GameSelectionView: View {
     @State var showingPictureGame = false
     @State var selectedPicture: Picture?
     @State var isShowingContinueAlert = false
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -92,7 +93,6 @@ struct GameSelectionView: View {
                     .navigationDestination(isPresented: $showingPictureGame, destination: {
                         GameView(vm: GameVM(picture: selectedPicture))
                     })
-                    
                     Spacer()
                     Spacer()
                     Spacer()

@@ -19,7 +19,6 @@
 		783774AF2BA3DE4600F20904 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783774AE2BA3DE4600F20904 /* LottieView.swift */; };
 		783774B12BA4141B00F20904 /* GameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783774B02BA4141B00F20904 /* GameVM.swift */; };
 		783774B52BA461FD00F20904 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783774B42BA461FD00F20904 /* SplashView.swift */; };
-		783774B72BA4744800F20904 /* puzzle.json in Resources */ = {isa = PBXBuildFile; fileRef = 783774B62BA4744800F20904 /* puzzle.json */; };
 		78C7FD202B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7FD1F2B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift */; };
 		78C7FD242B9EB95B0048E883 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C7FD232B9EB95B0048E883 /* Assets.xcassets */; };
 		78C7FD272B9EB95B0048E883 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C7FD262B9EB95B0048E883 /* Preview Assets.xcassets */; };
@@ -39,7 +38,6 @@
 		783774AE2BA3DE4600F20904 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		783774B02BA4141B00F20904 /* GameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
 		783774B42BA461FD00F20904 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		783774B62BA4744800F20904 /* puzzle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = puzzle.json; sourceTree = "<group>"; };
 		78C7FD1C2B9EB95A0048E883 /* Sliding15PuzzleGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sliding15PuzzleGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C7FD1F2B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sliding15PuzzleGameApp.swift; sourceTree = "<group>"; };
 		78C7FD232B9EB95B0048E883 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				783774AC2BA3DA1200F20904 /* Confetti.json */,
-				783774B62BA4744800F20904 /* puzzle.json */,
 			);
 			path = "Lottie Files";
 			sourceTree = "<group>";
@@ -214,7 +211,6 @@
 			files = (
 				783774AD2BA3DA1200F20904 /* Confetti.json in Resources */,
 				7834B95A2BBD263000AA7839 /* Readme_Images.xcassets in Resources */,
-				783774B72BA4744800F20904 /* puzzle.json in Resources */,
 				78C7FD272B9EB95B0048E883 /* Preview Assets.xcassets in Resources */,
 				78C7FD242B9EB95B0048E883 /* Assets.xcassets in Resources */,
 			);

@@ -7,7 +7,6 @@ Arranging numbered tiles or solving picture puzzles with hints
 
 ##  🚀  Features
 
-The app is entirely written in Swift, featuring a user-friendly UI that makes it easy to enjoy the game.
 - Choose between two types of games: Classic with numbered tiles or Picture tiles
 - Pause the game whenever necessary
 - Track your performance with a timer and move counter
@@ -23,6 +22,14 @@ The app is entirely written in Swift, featuring a user-friendly UI that makes it
 <img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Pause.imageset/Screenshot_Pause.png" width="300"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/15PuzzleDemo_corner.dataset/15PuzzleDemo_corner.gif" width="280"  title="demo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+## 👩‍💻 Core Technologies
+
+- Build entirely in SwiftUI
+- Followed MVVM design pattern
+- Used Package Dependencies (Lottie) for animations
+- Designed UI in Figma
+
 ## 📜 Requirements
 - iOS 17.2+
 - Xcode 15
+

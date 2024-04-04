@@ -11,7 +11,6 @@ struct GameProgress: Codable {
     var tiles: [Int]
     var picture: Picture?
     var totalMoves: Int
-    var bestPlay: [Int]
     var timeElapsed: Double
 }
 

@@ -96,7 +96,7 @@ struct GameView: View {
         }
         .overlay(vm.isPaused ? overlayView : nil)
         .overlay(vm.showingCongratulationAlert ?
-                 DialogView(isShowingAlert: $vm.showingCongratulationAlert, title: "Excellent!", message: "It took you \(vm.totalMoves) moves", bestPlay: vm.bestPlay.min() ?? 0, buttonTitle: "New Game", action: vm.shuffle)
+                 DialogView(isShowingAlert: $vm.showingCongratulationAlert, title: "Excellent!", message: "It took you \(vm.totalMoves) moves", bestPlay: bestPlay(), buttonTitle: "New Game", action: vm.shuffle)
             .padding(30)
                  : nil)
         .onDisappear {
@@ -136,7 +136,17 @@ struct GameView: View {
                 break
             }
         }
+        
     }
+    
+    private func bestPlay() -> Int {
+        if vm.selectedPicture != nil {
+            return UserDefaults.standard.integer(forKey: "pictureScore")
+        } else {
+            return UserDefaults.standard.integer(forKey: "classicScore")
+        }
+    }
+    
 }
 
 extension GameView {

@@ -20,29 +20,25 @@ class GameVM: ObservableObject {
     @Published var showingDismissAlert = false
     @Published var showingCongratulationAlert = false
 
-    @Published var isPaused = false
+    var isPaused = false
     var isShuffling = false
     
     @Published var tiles: [Int] = Array(1...15) + [0]
-    
     @Published var totalMoves = 0
-    @Published var bestPlay: [Int]
     @Published var timeElapsed: Double = 0.0
-
     @Published var showingHint = false
     
     private var lastEmptyIndex = -1 // Update the index of the previously empty tile.
     var timer: Timer!
     
     // INIT: for the classic game
-    init(size: Int = 4, tileSize: CGFloat = 80, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, bestPlay: [Int] = [-1], timeElapsed: Double = 0.0) {
+    init(size: Int = 4, tileSize: CGFloat = 80, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, timeElapsed: Double = 0.0) {
         self.tiles = tiles
         self.totalMoves = totalMoves
-        self.bestPlay = bestPlay
         self.timeElapsed = timeElapsed
         self.size = size
         self.tileSize = tileSize
-
+        print("initializer")
         if getSavedProgress(isDefault: true) {
             start()
             if timeElapsed != 0.0 && totalMoves != 0 && tiles != [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
@@ -53,15 +49,14 @@ class GameVM: ObservableObject {
     }
     
     // INIT: for the picture game
-    init(size: Int = 4, tileSize: CGFloat = 80, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, bestPlay: [Int] = [-1], timeElapsed: Double = 0.0, picture: Picture?) {
+    init(size: Int = 4, tileSize: CGFloat = 80, tiles: [Int] = Array(1...15) + [0], totalMoves: Int = 0, timeElapsed: Double = 0.0, picture: Picture?) {
         self.tiles = tiles
         self.totalMoves = totalMoves
-        self.bestPlay = bestPlay
         self.timeElapsed = timeElapsed
         self.size = size
         self.tileSize = tileSize
         self.selectedPicture = picture
-
+        print("initializer")
         if getSavedProgress(isDefault: false) {
             start()
             if timeElapsed != 0.0 && totalMoves != 0 && tiles != [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
@@ -80,7 +75,7 @@ class GameVM: ObservableObject {
     
     // FUNCTION: to save user's game progress.
     func saveProgress() {
-        let data = GameProgress(tiles: tiles, picture: selectedPicture, totalMoves: totalMoves, bestPlay: bestPlay, timeElapsed: timeElapsed)
+        let data = GameProgress(tiles: tiles, picture: selectedPicture, totalMoves: totalMoves, timeElapsed: timeElapsed)
         if let encodedProgress = try? JSONEncoder().encode(data) {
             UserDefaults.standard.set(encodedProgress, forKey: "savedProgress")
         }
@@ -96,7 +91,6 @@ class GameVM: ObservableObject {
         if isDefault && savedProgress.picture == nil || !isDefault && savedProgress.picture != nil {
             self.tiles = savedProgress.tiles
             self.totalMoves = savedProgress.totalMoves
-            self.bestPlay = savedProgress.bestPlay
             self.timeElapsed = savedProgress.timeElapsed
             self.selectedPicture = savedProgress.picture
             
@@ -125,7 +119,25 @@ class GameVM: ObservableObject {
             // Check whether the user's answer is correct or not.
             if tiles == [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
                 pause()
-                bestPlay.append(totalMoves)
+                if selectedPicture != nil {
+                    let score = UserDefaults.standard.integer(forKey: "pictureScore")
+                    if score == 0 {
+                        UserDefaults.standard.setValue(totalMoves, forKey: "pictureScore")
+                    } else if score > totalMoves {
+                        UserDefaults.standard.setValue(totalMoves, forKey: "pictureScore")
+                    } else {
+                        // do nothing
+                    }
+                } else {
+                    let score = UserDefaults.standard.integer(forKey: "classicScore")
+                    if score == 0 {
+                        UserDefaults.standard.setValue(totalMoves, forKey: "classicScore")
+                    } else if score > totalMoves {
+                        UserDefaults.standard.setValue(totalMoves, forKey: "classicScore")
+                    } else {
+                        // do nothing
+                    }
+                }
                 showingCongratulationAlert.toggle()
                 message = "Execellent! It took you \(totalMoves) moves"
                 print("Execellent! It took you \(totalMoves) moves")
