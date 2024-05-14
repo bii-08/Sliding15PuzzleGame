@@ -15,7 +15,7 @@ struct CustomAlertView: View {
     var secondaryButtonTitle: String
     var action2: () -> ()
     @State private var offset: CGFloat = 0
-    
+    @ObservedObject var vm = GameVM()
     var body: some View {
         ZStack {
             VStack {
@@ -37,7 +37,7 @@ struct CustomAlertView: View {
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 120, height: 50)
+                                .frame(width: vm.userDeviceHeight <= 812 && vm.userDeviceWidth <= 375 || vm.userDeviceHeight <= 667 && vm.userDeviceWidth <= 375 ? 100 : 120, height: 50)
                                 .foregroundColor(Color.orange)
                             Text(primaryButtonTitle)
 //                                .font(.custom("Chalkboard SE", size: 20))
@@ -54,7 +54,7 @@ struct CustomAlertView: View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 20)
                                 .foregroundColor(Color.orange)
-                                .frame(width: 125, height: 50)
+                                .frame(width: vm.userDeviceHeight <= 812 && vm.userDeviceWidth <= 375 || vm.userDeviceHeight <= 667 && vm.userDeviceWidth <= 375 ? 100 : 125, height: 50)
                             Text(secondaryButtonTitle)
 //                                .font(.custom("Chalkboard SE", size: 20))
                                 .font(.system(size: 18, weight: .bold))

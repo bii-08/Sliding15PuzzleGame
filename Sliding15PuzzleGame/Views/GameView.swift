@@ -154,7 +154,9 @@ struct GameView: View {
 extension GameView {
     private var overlayView: some View {
         ZStack {
-            Color(.white.opacity(0.6)).ignoresSafeArea()
+            Color.white.opacity(0.6)
+                .ignoresSafeArea()
+            
             Button {
                 vm.isPaused.toggle()
                 // Have to resume the timer here.
