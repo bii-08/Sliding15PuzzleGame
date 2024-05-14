@@ -5,7 +5,7 @@
 //  Created by LUU THANH TAM on 2024/03/15.
 //
 
-import Foundation
+
 import Combine
 import CoreData
 import UIKit
@@ -22,6 +22,8 @@ class GameVM: ObservableObject {
 
     var isPaused = false
     var isShuffling = false
+    var userDeviceHeight = UIScreen.main.bounds.height
+    var userDeviceWidth = UIScreen.main.bounds.width
     
     @Published var tiles: [Int] = Array(1...15) + [0]
     @Published var totalMoves = 0
@@ -39,6 +41,8 @@ class GameVM: ObservableObject {
         self.size = size
         self.tileSize = tileSize
         print("initializer")
+        print(userDeviceWidth)
+        print(userDeviceHeight)
         if getSavedProgress(isDefault: true) {
             start()
             if timeElapsed != 0.0 && totalMoves != 0 && tiles != [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
