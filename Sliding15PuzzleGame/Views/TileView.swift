@@ -59,5 +59,5 @@ extension TileView {
 }
 
 #Preview {
-    TileView(number: 8, size: 50, picture: nil, onTap: {})
+    TileView(number: 8, size: 45, picture: nil, onTap: {})
 }

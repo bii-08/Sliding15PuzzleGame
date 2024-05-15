@@ -45,6 +45,7 @@ struct GameSelectionView: View {
                     Spacer()
                     // LOGO
                     HStack {
+                        Spacer()
                         if colorScheme == .light {
                             Image("Puzzle icon_Light mode")
                                 .resizable()
@@ -54,12 +55,14 @@ struct GameSelectionView: View {
                                 .resizable()
                                 .frame(width: 200,height: 100)
                         }
+                        Spacer()
                     }
-                    .padding(.horizontal, 47)
+                    
                     Spacer()
                     
                     // CLASSIC button & PICTURE button
                     HStack {
+                        Spacer()
                         Button {
                             self.showingClassicGame.toggle()
                         } label: {
@@ -72,7 +75,6 @@ struct GameSelectionView: View {
                                 .background(Color("classicAndPicture"))
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
                         }
-                        .padding()
                         
                         Button {
                             self.showingSheet.toggle()
@@ -86,6 +88,7 @@ struct GameSelectionView: View {
                                 .background(Color("classicAndPicture"))
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
                         }
+                        Spacer()
                     }
                     .navigationDestination(isPresented: $showingClassicGame, destination: {
                         GameView(vm: GameVM())

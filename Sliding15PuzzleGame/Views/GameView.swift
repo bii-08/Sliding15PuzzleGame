@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import UIKit
 
 struct GameView: View {
     @Environment(\.scenePhase) private var scenePhase
@@ -37,7 +38,7 @@ struct GameView: View {
                         // Game Picture
                         Image("\(picture.rawValue)")
                             .resizable()
-                            .frame(width: 200, height: 200)
+                            .frame(width: vm.userDeviceHeight <= 812 && vm.userDeviceWidth <= 375 || vm.userDeviceHeight <= 667 && vm.userDeviceWidth <= 375 ? 160 : 200, height: vm.userDeviceHeight <= 812 && vm.userDeviceWidth <= 375 || vm.userDeviceHeight <= 667 && vm.userDeviceWidth <= 375 ? 160 : 200)
                             .cornerRadius(5)
                         
                            // Hint/ Hide button
@@ -66,12 +67,13 @@ struct GameView: View {
                 ForEach(0..<vm.size, id: \.self) { row in
                     HStack {
                         ForEach(0..<vm.size, id: \.self) { column in
-                            TileView(number: vm.tiles[row * vm.size + column], size: vm.tileSize, picture: vm.selectedPicture, showingHint: vm.showingHint) {
+                            TileView(number: vm.tiles[row * vm.size + column], size: vm.userDeviceHeight <= 812 && vm.userDeviceWidth <= 375 || vm.userDeviceHeight <= 667 && vm.userDeviceWidth <= 375 ? 70 : vm.tileSize, picture: vm.selectedPicture, showingHint: vm.showingHint) {
                                 vm.tapTile(at: (row, column))
                             }
                         }
                     }
                 }
+                
                 Spacer()
                 Spacer()
                 Spacer()
@@ -167,7 +169,7 @@ extension GameView {
     }
     
     private var controlPanel: some View {
-        HStack(spacing: 20) {
+        HStack(spacing: vm.userDeviceHeight <= 812 && vm.userDeviceWidth <= 375 || vm.userDeviceHeight <= 667 && vm.userDeviceWidth <= 375 ? 5 : 20) {
             Spacer()
             // Back button
             Button(action: {
@@ -256,6 +258,7 @@ extension GameView {
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: 55)
+        
     }
 }
 
