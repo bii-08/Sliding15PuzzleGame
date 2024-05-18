@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import UIKit
+import Pow
 
 struct GameView: View {
     @Environment(\.scenePhase) private var scenePhase
@@ -227,13 +228,14 @@ extension GameView {
                         .frame(width: 25, height: 20)
                         .foregroundColor(vm.showingCongratulationAlert == true || vm.showingDismissAlert ? Color(.gray) : Color("tile"))
                         .bold()
-                    Text("Shuffle")
+                    Text(vm.awaitingStart ? "Shuffle" : "Reshuffle")
                         .font(Font.custom("Chalkboard SE", size: 18))
                         .frame(minWidth: 80)
                         .foregroundColor(vm.showingCongratulationAlert == true || vm.showingDismissAlert ? Color(.gray) : Color("timerAndMovesButton"))
                 }
             })
             .disabled(vm.showingCongratulationAlert == true || vm.showingDismissAlert)
+            .conditionalEffect(.repeat(.wiggle(rate: .fast), every: .seconds(1.5)), condition: vm.awaitingStart)
             Spacer()
             VStack(alignment: .leading, spacing: 5) {
                 HStack(spacing: 0) {

@@ -8,6 +8,15 @@
         "revision" : "3bd43e12d6fb54654366a61f7cfaca787318b8ce",
         "version" : "4.4.1"
       }
+    },
+    {
+      "identity" : "pow",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:EmergeTools/Pow.git",
+      "state" : {
+        "revision" : "cc014eba4b65f689cadc281ad925de5607f2adc9",
+        "version" : "1.0.3"
+      }
     }
   ],
   "version" : 2

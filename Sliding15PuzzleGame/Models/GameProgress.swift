@@ -14,9 +14,17 @@ struct GameProgress: Codable {
     var timeElapsed: Double
 }
 
-enum Picture: String, Identifiable, Codable {
+enum Picture: String, Identifiable, Codable, CaseIterable {
     var id: Self {
         return self
     }
-    case boyAndCat, eating, fly, japaneseHouse, maxAndJess, pancake, temple, udonYa
+    case aussieanimals, sloth, boyAndCat, eating, fly, japaneseHouse, maxAndJess, pancake, temple, udonYa
+    var isJustAdded: Bool {
+        switch self {
+        case .aussieanimals, .sloth:
+            return true
+        default:
+            return false
+        }
+    }
 }

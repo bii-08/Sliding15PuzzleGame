@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct PicturesListView: View {
-    @State private var pictures: [Picture] = [Picture.boyAndCat, Picture.eating, Picture.fly, Picture.japaneseHouse, Picture.maxAndJess, Picture.pancake, Picture.temple, Picture.udonYa]
+    @State private var pictures: [Picture] = Picture.allCases
     @State var gridLayout: [GridItem] = [GridItem()]
     var action: (Picture) -> Void
     var body: some View {
@@ -21,13 +21,24 @@ struct PicturesListView: View {
                         // Todo: Cancel the sheet and navigate user to Game View
                         action(pictures[index].id)
                     } label: {
-                        Image("\(pictures[index])")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .frame(height: 200)
-                            .cornerRadius(10)
-                            .shadow(color: Color.primary.opacity(0.3), radius: 1)
+                        ZStack(alignment: .topTrailing) {
+                            Image("\(pictures[index])")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .frame(height: 200)
+                                .cornerRadius(10)
+                                .shadow(color: Color.primary.opacity(0.3), radius: 1)
+                            if pictures[index].isJustAdded {
+                                Text("New")
+                                    .font(.system(size: 14, weight: .bold))
+                                    .foregroundColor(.white)
+                                    .padding(8)
+                                    .background(Color.red)
+                                    .clipShape(Capsule())
+                                    .offset(x: -16, y: 16)
+                            }
+                        }
                     }
                     
                 }

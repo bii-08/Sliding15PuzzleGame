@@ -24,6 +24,7 @@
 		78C7FD272B9EB95B0048E883 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C7FD262B9EB95B0048E883 /* Preview Assets.xcassets */; };
 		78C7FD342B9EC7300048E883 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7FD332B9EC7300048E883 /* TileView.swift */; };
 		78C7FD362B9EC8F70048E883 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7FD352B9EC8F70048E883 /* GameView.swift */; };
+		9B12DC432BF77AC900A574EF /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 9B12DC422BF77AC900A574EF /* Pow */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				783774A82BA3D74E00F20904 /* Lottie in Frameworks */,
+				9B12DC432BF77AC900A574EF /* Pow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +165,7 @@
 			name = Sliding15PuzzleGame;
 			packageProductDependencies = (
 				783774A72BA3D74E00F20904 /* Lottie */,
+				9B12DC422BF77AC900A574EF /* Pow */,
 			);
 			productName = Sliding15PuzzleGame;
 			productReference = 78C7FD1C2B9EB95A0048E883 /* Sliding15PuzzleGame.app */;
@@ -194,6 +197,7 @@
 			mainGroup = 78C7FD132B9EB95A0048E883;
 			packageReferences = (
 				783774A62BA3D74E00F20904 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				9B12DC412BF77AC900A574EF /* XCRemoteSwiftPackageReference "Pow" */,
 			);
 			productRefGroup = 78C7FD1D2B9EB95A0048E883 /* Products */;
 			projectDirPath = "";
@@ -386,7 +390,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bii.sliding15puzzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "15 Sliding Puzzle Distribution";
@@ -426,7 +430,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bii.sliding15puzzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "15 Sliding Puzzle Distribution";
@@ -472,6 +476,14 @@
 				minimumVersion = 4.4.1;
 			};
 		};
+		9B12DC412BF77AC900A574EF /* XCRemoteSwiftPackageReference "Pow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:EmergeTools/Pow.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -479,6 +491,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 783774A62BA3D74E00F20904 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
+		};
+		9B12DC422BF77AC900A574EF /* Pow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B12DC412BF77AC900A574EF /* XCRemoteSwiftPackageReference "Pow" */;
+			productName = Pow;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

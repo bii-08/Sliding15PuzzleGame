@@ -19,6 +19,7 @@ class GameVM: ObservableObject {
     
     @Published var showingDismissAlert = false
     @Published var showingCongratulationAlert = false
+    @Published var awaitingStart = true
 
     var isPaused = false
     var isShuffling = false
@@ -40,10 +41,9 @@ class GameVM: ObservableObject {
         self.timeElapsed = timeElapsed
         self.size = size
         self.tileSize = tileSize
-        print("initializer")
-        print(userDeviceWidth)
-        print(userDeviceHeight)
+
         if getSavedProgress(isDefault: true) {
+            self.awaitingStart = false
             start()
             if timeElapsed != 0.0 && totalMoves != 0 && tiles != [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] {
                 UserDefaults.standard.removeObject(forKey: "savedProgress")
@@ -73,6 +73,7 @@ class GameVM: ObservableObject {
         self.timeElapsed = 0.0
         self.totalMoves = 0
         self.isPaused = false
+        self.awaitingStart = true
         self.showingDismissAlert = false
         self.tiles = Array(1...15) + [0]
     }
@@ -185,6 +186,7 @@ class GameVM: ObservableObject {
     
     // FUNCTION: to shuffle tile array with a moving motion.
     func shuffle() {
+        self.awaitingStart = false
         self.isShuffling = true
         lastEmptyIndex = -1
         var num = 50  // The puzzle will be shuffled 50 times.
