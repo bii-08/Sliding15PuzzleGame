@@ -1,6 +1,9 @@
 <img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Assets.xcassets/Puzzle%20icon_Dark%20mode.imageset/Puzzle%20icon_Dark%20mode.png" width="100"  title="app">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 # 15 Puzzle Game App
+![Buit on](https://img.shields.io/badge/Built_on-Swift-red?logo=Swift)
+![Interface](https://img.shields.io/badge/Interface-SwiftUI-yellow)
+![Architecture](https://img.shields.io/badge/Architecture-MVVM-green)
 
 The '15 puzzle' is a timeless puzzle that offers 2 distinct ways to play: 
 Arranging numbered tiles or solving picture puzzles with hints
@@ -24,12 +27,21 @@ Arranging numbered tiles or solving picture puzzles with hints
 
 ## 👩‍💻 Core Technologies
 
-- Build entirely in SwiftUI
+- Built entirely on SwiftUI
 - Followed MVVM design pattern
 - Used Package Dependencies (Lottie) for animations
 - Designed UI in Figma
+
+## 🛠️ Dependencies
+
+- Lottie
 
 ## 📜 Requirements
 - iOS 17.2+
 - Xcode 15
 
+## 📱 Contact
+
+Have a project? DM me at 👇
+
+Drop a mail to: luuthithanhtam08@gmail.com
