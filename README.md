@@ -18,12 +18,12 @@ Arranging numbered tiles or solving picture puzzles with hints
   
 ##  📸  Demo
 
-<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Selection.imageset/Screenshot_Selection.png" width="300"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Classic.imageset/Screenshot_Classic.png" width="300"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Picture.imageset/Screenshot_Picture.png" width="300"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_PictureList.imageset/Screenshot_PictureList.png" width="300"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Pause.imageset/Screenshot_Pause.png" width="300"  title="Classic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/15PuzzleDemo_corner.dataset/15PuzzleDemo_corner.gif" width="280"  title="demo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Selection.imageset/Screenshot_Selection.png" width="300"  title="Game Selection">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Classic.imageset/Screenshot_Classic.png" width="300"  title="Classic Game">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Picture.imageset/Screenshot_Picture.png" width="300"  title="Picture Game">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_PictureList.imageset/Screenshot_PictureList.png" width="300"  title="Picture Selection">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/Screenshot_Pause.imageset/Screenshot_Pause.png" width="300"  title="Pause">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/bii-08/Sliding15PuzzleGame/blob/main/Sliding15PuzzleGame/Readme_Images.xcassets/15PuzzleDemo_corner.dataset/15PuzzleDemo_corner.gif" width="280"  title="Demo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ## 👩‍💻 Core Technologies
 
@@ -45,3 +45,5 @@ Arranging numbered tiles or solving picture puzzles with hints
 Have a project? DM me at 👇
 
 Drop a mail to: luuthithanhtam08@gmail.com
+
+![Static Badge](https://img.shields.io/badge/Built_with_%F0%9F%92%93-blue)
