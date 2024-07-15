@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 import UIKit
 import Pow
+import GoogleMobileAds
 
 struct GameView: View {
     @Environment(\.scenePhase) private var scenePhase
@@ -78,6 +79,11 @@ struct GameView: View {
                 Spacer()
                 Spacer()
                 Spacer()
+                
+                BannerView()
+                    .frame(width: 350, height: 50)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+     
             }
             .navigationBarBackButtonHidden(true)
             

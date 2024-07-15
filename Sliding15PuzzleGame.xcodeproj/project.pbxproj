@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7804B1DB2BA7C55900E435C4 /* GameProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B1DA2BA7C55900E435C4 /* GameProgress.swift */; };
+		782B36D72C429F7E0097D787 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 782B36D62C429F7E0097D787 /* GoogleMobileAds */; };
+		782B36DA2C42A0740097D787 /* BannerAdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782B36D92C42A0740097D787 /* BannerAdsManager.swift */; };
 		7834B94C2BB50C2500AA7839 /* GameSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834B94B2BB50C2400AA7839 /* GameSelectionView.swift */; };
 		7834B94E2BB51D8A00AA7839 /* PicturesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834B94D2BB51D8A00AA7839 /* PicturesListView.swift */; };
 		7834B9522BB6F15000AA7839 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834B9512BB6F15000AA7839 /* CustomAlertView.swift */; };
@@ -24,11 +26,13 @@
 		78C7FD272B9EB95B0048E883 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C7FD262B9EB95B0048E883 /* Preview Assets.xcassets */; };
 		78C7FD342B9EC7300048E883 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7FD332B9EC7300048E883 /* TileView.swift */; };
 		78C7FD362B9EC8F70048E883 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7FD352B9EC8F70048E883 /* GameView.swift */; };
-		9B12DC432BF77AC900A574EF /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 9B12DC422BF77AC900A574EF /* Pow */; };
+		78CD1E4D2C24479500EDA4AE /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 78CD1E4C2C24479500EDA4AE /* Pow */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7804B1DA2BA7C55900E435C4 /* GameProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProgress.swift; sourceTree = "<group>"; };
+		782B36D92C42A0740097D787 /* BannerAdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdsManager.swift; sourceTree = "<group>"; };
+		782B36DB2C42A5CA0097D787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7834B94B2BB50C2400AA7839 /* GameSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionView.swift; sourceTree = "<group>"; };
 		7834B94D2BB51D8A00AA7839 /* PicturesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesListView.swift; sourceTree = "<group>"; };
 		7834B9512BB6F15000AA7839 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
@@ -52,8 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				782B36D72C429F7E0097D787 /* GoogleMobileAds in Frameworks */,
 				783774A82BA3D74E00F20904 /* Lottie in Frameworks */,
-				9B12DC432BF77AC900A574EF /* Pow in Frameworks */,
+				78CD1E4D2C24479500EDA4AE /* Pow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,14 @@
 				7804B1DA2BA7C55900E435C4 /* GameProgress.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		782B36D82C42A0230097D787 /* AdMod Ads */ = {
+			isa = PBXGroup;
+			children = (
+				782B36D92C42A0740097D787 /* BannerAdsManager.swift */,
+			);
+			path = "AdMod Ads";
 			sourceTree = "<group>";
 		};
 		7834B9532BB6FB9600AA7839 /* Extension */ = {
@@ -126,10 +139,12 @@
 		78C7FD1E2B9EB95A0048E883 /* Sliding15PuzzleGame */ = {
 			isa = PBXGroup;
 			children = (
+				782B36DB2C42A5CA0097D787 /* Info.plist */,
 				78C7FD1F2B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift */,
 				7804B1D92BA7C50300E435C4 /* Models */,
 				7837749D2BA17DF500F20904 /* Views */,
 				7837749E2BA17E0D00F20904 /* ViewModel */,
+				782B36D82C42A0230097D787 /* AdMod Ads */,
 				7834B9532BB6FB9600AA7839 /* Extension */,
 				783774AB2BA3D9E400F20904 /* Lottie Files */,
 				78C7FD232B9EB95B0048E883 /* Assets.xcassets */,
@@ -165,7 +180,8 @@
 			name = Sliding15PuzzleGame;
 			packageProductDependencies = (
 				783774A72BA3D74E00F20904 /* Lottie */,
-				9B12DC422BF77AC900A574EF /* Pow */,
+				78CD1E4C2C24479500EDA4AE /* Pow */,
+				782B36D62C429F7E0097D787 /* GoogleMobileAds */,
 			);
 			productName = Sliding15PuzzleGame;
 			productReference = 78C7FD1C2B9EB95A0048E883 /* Sliding15PuzzleGame.app */;
@@ -197,7 +213,8 @@
 			mainGroup = 78C7FD132B9EB95A0048E883;
 			packageReferences = (
 				783774A62BA3D74E00F20904 /* XCRemoteSwiftPackageReference "lottie-spm" */,
-				9B12DC412BF77AC900A574EF /* XCRemoteSwiftPackageReference "Pow" */,
+				78CD1E4B2C24479500EDA4AE /* XCRemoteSwiftPackageReference "Pow" */,
+				782B36D52C429F7E0097D787 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 78C7FD1D2B9EB95A0048E883 /* Products */;
 			projectDirPath = "";
@@ -235,6 +252,7 @@
 				783774AF2BA3DE4600F20904 /* LottieView.swift in Sources */,
 				783774A02BA1D69C00F20904 /* DialogView.swift in Sources */,
 				783774B12BA4141B00F20904 /* GameVM.swift in Sources */,
+				782B36DA2C42A0740097D787 /* BannerAdsManager.swift in Sources */,
 				7834B94C2BB50C2500AA7839 /* GameSelectionView.swift in Sources */,
 				78C7FD202B9EB95A0048E883 /* Sliding15PuzzleGameApp.swift in Sources */,
 				7804B1DB2BA7C55900E435C4 /* GameProgress.swift in Sources */,
@@ -378,8 +396,10 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49H596ZHS6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sliding15PuzzleGame/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "15 Puzzle";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "To improve your experience";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -390,7 +410,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bii.sliding15puzzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "15 Sliding Puzzle Distribution";
@@ -418,8 +438,10 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49H596ZHS6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sliding15PuzzleGame/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "15 Puzzle";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "To improve your experience";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -430,7 +452,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bii.sliding15puzzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "15 Sliding Puzzle Distribution";
@@ -468,6 +490,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		782B36D52C429F7E0097D787 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.6.0;
+			};
+		};
 		783774A62BA3D74E00F20904 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -476,25 +506,30 @@
 				minimumVersion = 4.4.1;
 			};
 		};
-		9B12DC412BF77AC900A574EF /* XCRemoteSwiftPackageReference "Pow" */ = {
+		78CD1E4B2C24479500EDA4AE /* XCRemoteSwiftPackageReference "Pow" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:EmergeTools/Pow.git";
+			repositoryURL = "https://github.com/EmergeTools/Pow.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.3;
+				minimumVersion = 1.0.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		782B36D62C429F7E0097D787 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 782B36D52C429F7E0097D787 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
 		783774A72BA3D74E00F20904 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 783774A62BA3D74E00F20904 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
 		};
-		9B12DC422BF77AC900A574EF /* Pow */ = {
+		78CD1E4C2C24479500EDA4AE /* Pow */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9B12DC412BF77AC900A574EF /* XCRemoteSwiftPackageReference "Pow" */;
+			package = 78CD1E4B2C24479500EDA4AE /* XCRemoteSwiftPackageReference "Pow" */;
 			productName = Pow;
 		};
 /* End XCSwiftPackageProductDependency section */

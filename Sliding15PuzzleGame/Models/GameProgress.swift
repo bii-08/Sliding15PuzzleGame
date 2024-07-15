@@ -18,10 +18,10 @@ enum Picture: String, Identifiable, Codable, CaseIterable {
     var id: Self {
         return self
     }
-    case aussieanimals, sloth, boyAndCat, eating, fly, japaneseHouse, maxAndJess, pancake, temple, udonYa
+    case forest, houseAndMoon, sunflower, kidWithFlowers, aussieanimals, sloth, boyAndCat, eating, fly, japaneseHouse, maxAndJess, pancake, temple, udonYa
     var isJustAdded: Bool {
         switch self {
-        case .aussieanimals, .sloth:
+        case .forest, .houseAndMoon, .sunflower, .kidWithFlowers:
             return true
         default:
             return false
